@@ -7,10 +7,13 @@ import helmet from "helmet";
 import morgan from "morgan";
 
 import RootRoute from "./routes/route.js";
+import connectDB from "./config/database.js";
 
 const app: express.Express = express();
 
 const port = process.env.PORT;
+
+connectDB();
 
 const corsOptions = {
   origin: `http://localhost:${port}`,
