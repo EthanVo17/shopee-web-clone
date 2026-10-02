@@ -8,31 +8,33 @@ const UserSchema = new mongoose.Schema<Auth>(
       type: String,
       required: true,
       trim: true,
+      default: null,
     },
 
     email: {
       type: String,
       trim: true,
       required: true,
+      lowercase: true,
+      default: null,
     },
 
     password: {
       type: String,
-      trim: true,
       required: true,
+      select: false,
     },
 
     phoneNumber: {
-      type: Number,
+      type: String,
       required: true,
+      trim: true,
+      unique: true,
     },
 
-    avatar: [
-      {
-        type: String,
-        trim: true,
-      },
-    ],
+    avatar: {
+      type: String,
+    },
 
     addresses: [
       {
